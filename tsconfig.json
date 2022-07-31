@@ -23,7 +23,7 @@
   "include": [
     "src/*.ts",
   ],
-  "excludedFiles": ["node_modules", "dist", "__tests__", "*.js"],
+  "excludedFiles": ["node_modules", "dist", "__tests__", "*.js", "index.d.ts"],
   "ts-node": {
     "swc": true,
     "esm": true,

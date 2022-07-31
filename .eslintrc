@@ -36,5 +36,5 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"],
   },
-  "ignorePatterns": ["node_modules", "dist", "__tests__", ".js"]
+  "ignorePatterns": ["node_modules", "dist", "__tests__"]
 }

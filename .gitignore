@@ -106,3 +106,7 @@ dist
 
 yarn.lock
 yarn-error.log
+
+index.d.ts
+index.js
+index.js.map

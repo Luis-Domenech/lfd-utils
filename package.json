@@ -13,8 +13,8 @@
     "prepare": "husky install",
     "lint": "eslint ./src --quiet --parser-options=project:./tsconfig.json -c ./.eslintrc --ext .ts",
     "lint-f": "eslint ./src --quiet --fix --parser-options=project:./tsconfig.json -c ./.eslintrc --ext .ts",
-    "bundle": "tsc-bundle ./tsconfig.json --outFile ./dist/index.js",
-    "uglify": "uglifyjs ./dist/index.js -o ./dist/index.js",
+    "bundle": "tsc-bundle ./tsconfig.json --outFile ./index.js",
+    "uglify": "uglifyjs ./index.js -o ./index.js",
     "deploy": "yarn bundle && yarn uglify && semantic-release"
   },
   "dependencies": {
@@ -45,9 +45,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "dist"
+    "index.js",
+    "index.d.js",
+    "index.js.map",
+    "LICENSE"
   ]
 }

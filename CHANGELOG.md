@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.8...v1.0.9) (2022-07-31)
+
+
+### Bug Fixes
+
+* **package:** JSDoc comments are now exported correctly ([6e5e598](https://github.com/Luis-Domenech/lfd-utils/commit/6e5e598134dce1bf89cb10885bc38c9a5d31b0ca))
+
 ## [1.0.8](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.7...v1.0.8) (2022-07-31)
 
 

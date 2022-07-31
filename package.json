@@ -1,7 +1,6 @@
 {
   "name": "lfd-utils",
   "version": "1.0.3",
-  "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
@@ -45,5 +44,10 @@
   ],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
 }

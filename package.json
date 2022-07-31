@@ -12,7 +12,7 @@
     "lint": "eslint ./src --quiet --parser-options=project:./tsconfig.json -c ./.eslintrc --ext .ts",
     "lint-f": "eslint ./src --quiet --fix --parser-options=project:./tsconfig.json -c ./.eslintrc --ext .ts",
     "build": "yarn lint-f && tsc",
-    "deploy": "yarn build && semamtic-release"
+    "deploy": "yarn build && semantic-release"
   },
   "dependencies": {
     "chalk": "^5.0.1",

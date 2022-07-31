@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.4...v1.0.5) (2022-07-31)
+
+
+### Bug Fixes
+
+* **package:** Fixed package publish logic ([7606945](https://github.com/Luis-Domenech/lfd-utils/commit/760694586cb9db604f4d654afedc4a31a16d69e2))
+
 ## [1.0.4](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.3...v1.0.4) (2022-07-31)
 
 

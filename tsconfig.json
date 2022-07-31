@@ -12,11 +12,13 @@
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
     "sourceMap": true,
+    "declaration": true,
     "baseUrl": ".",
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "newLine": "lf",
+    "preserveConstEnums": true
   },
   "include": [
     "src/*.ts",
@@ -40,9 +42,11 @@
       "sourceMap": true,
       "baseUrl": ".",
       "moduleResolution": "NodeNext",
+      "declaration": true,
       "outDir": "./dist",
       "rootDir": "./src",
       "newLine": "lf",
+      "preserveConstEnums": true
     },
   },
 }

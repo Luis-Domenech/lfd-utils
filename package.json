@@ -1,11 +1,11 @@
 {
-  "name": "ts-utils",
-  "version": "1.0.1",
+  "name": "lfd-utils",
+  "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Luis-Domenech/ts-utils"
+    "url": "https://github.com/Luis-Domenech/lfd-utils"
   },
   "author": "Luis F. Domenech Ortiz <luisfabiandomenech@gmail.com> (https://luisfdomenech.com)",
   "license": "Apache-2.0",

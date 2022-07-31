@@ -49,7 +49,7 @@
   "types": "index.d.ts",
   "files": [
     "index.js",
-    "index.d.js",
+    "index.d.ts",
     "index.js.map",
     "LICENSE"
   ]

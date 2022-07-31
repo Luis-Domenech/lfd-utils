@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.5...v1.0.6) (2022-07-31)
+
+
+### Bug Fixes
+
+* **package:** Updated package exports ([1ed5b3e](https://github.com/Luis-Domenech/lfd-utils/commit/1ed5b3ef4c59257c5897f9c787ed1a3f4e68737e))
+
 ## [1.0.5](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.4...v1.0.5) (2022-07-31)
 
 

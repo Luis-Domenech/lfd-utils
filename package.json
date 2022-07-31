@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "repository": "https://github.com/Luis-Domenech/ts-utils.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luis-Domenech/ts-utils"
+  },
   "author": "Luis F. Domenech Ortiz <luisfabiandomenech@gmail.com> (https://luisfdomenech.com)",
   "license": "Apache-2.0",
   "description": "Just a bunch of general purpose functions used in all my projects",
@@ -38,7 +41,6 @@
     "typescript"
   ],
   "publishConfig": {
-    "access": "restricted",
-    "@luis-domenech:registry": "https://registry.npmjs.org"
+    "access": "public"
   }
 }

@@ -15,7 +15,8 @@
     "lint-f": "eslint ./src --quiet --fix --parser-options=project:./tsconfig.json -c ./.eslintrc --ext .ts",
     "bundle": "tsc-bundle ./tsconfig.json --outFile ./index.js",
     "uglify": "uglifyjs ./index.js -o ./index.js",
-    "deploy": "yarn bundle && yarn uglify && semantic-release"
+    "build": "tsc",
+    "deploy": "yarn lint && yarn build && semantic-release"
   },
   "dependencies": {
     "chalk": "^5.0.1"
@@ -45,12 +46,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts",
-    "index.js.map",
+    "dist",
     "LICENSE"
   ]
 }

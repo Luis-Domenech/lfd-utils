@@ -40,6 +40,7 @@
     "typescript"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "restricted",
+    "@luis-domenech:registry": "https://registry.npmjs.org"
   }
 }

@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.6...v1.0.7) (2022-07-31)
+
+
+### Bug Fixes
+
+* **package:** Fixed typoe ([cfc98d6](https://github.com/Luis-Domenech/lfd-utils/commit/cfc98d60bd05462c90e85e7f0f5e247003f1f1e6))
+
 ## [1.0.6](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.5...v1.0.6) (2022-07-31)
 
 

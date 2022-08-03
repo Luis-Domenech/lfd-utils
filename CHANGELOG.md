@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.10...v1.0.11) (2022-08-03)
+
+
+### Bug Fixes
+
+* **functions:** Fixed ends_with_any and starts_with_any ([3259626](https://github.com/Luis-Domenech/lfd-utils/commit/3259626b83ae9103c7dcf498240cec7b6ffaaced))
+
 ## [1.0.10](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.9...v1.0.10) (2022-07-31)
 
 

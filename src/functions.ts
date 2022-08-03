@@ -150,6 +150,8 @@ export const match_and_remove = (target: string, match: RegExp, remove_match: Re
  * @returns The first match from the given regex or an empty string if no matches were found
  */
 export const match_first = (target: string, match: RegExp): string => {
+  if (!target) return ''
+  
   const matches = target.match(match)
 
   if (matches) {

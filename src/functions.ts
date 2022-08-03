@@ -88,9 +88,9 @@ export const is_in = (target: any, to_check: any[] | Record<string, any>, check_
  * @returns If targer ends with any string in the endings array
  */
 export const ends_with_any = (target: string, endings: string[], case_sensitive = true): boolean => {
-  endings.map(async (word) => {
+  for (const word of endings) {
     if (case_sensitive ? target.endsWith(word) : target.toLocaleLowerCase().endsWith(word.toLowerCase())) return true
-  })
+  }
   return false
 }
 
@@ -102,9 +102,9 @@ export const ends_with_any = (target: string, endings: string[], case_sensitive 
  * @returns If targer ends with any string in the endings array
  */
  export const starts_with_any = (target: string, starts: string[], case_sensitive = true): boolean => {
-  starts.map(async (word) => {
-    if (case_sensitive ? target.endsWith(word) : target.toLocaleLowerCase().endsWith(word.toLowerCase())) return true
-  })
+  for (const word of starts) {
+    if (case_sensitive ? target.startsWith(word) : target.toLocaleLowerCase().startsWith(word.toLowerCase())) return true
+  }
   return false
 }
 

@@ -8,11 +8,11 @@ export class Logger {
   /**
    * Full name of package/module or whatever you want to associate with the logger
    */
-  static full_pkg_name: string
+  static full_pkg_name = "Logger"
   /**
    * This is auto set when instantiating class. It is the Logger's full_pkg_name, but in package format
    */
-  static pkg_name: string
+  static pkg_name = "logger"
   /**
    * Non async function that is called when Logger.error() is called. This can be set to some better functionn that handles program shutdown. As default, it is set to just execute process.exit(1)
    */
@@ -54,5 +54,5 @@ export class Logger {
   
   static async_error = async (message: any, data: any = null, ...optionalParams: any[]) => {console.error(`${Logger.tags.error} ${Logger.name}: ${message}`, ...optionalParams); await Logger.async_error_handler(data)}
   
-  static query = (message: any, ...optionalParams: any[]) => console.log(`${Logger.tags.query} ${Logger.name}: ${message}`, ...optionalParams)  
+  static query = (message: any, ...optionalParams: any[]) => console.log(`${Logger.tags.query} ${Logger.name}: ${message}`, ...optionalParams)
 }

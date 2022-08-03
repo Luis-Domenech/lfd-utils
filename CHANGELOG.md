@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.9...v1.0.10) (2022-07-31)
+
+
+### Bug Fixes
+
+* **Logger:** Added JDoc comments to Logger and made Logger better ([64c3859](https://github.com/Luis-Domenech/lfd-utils/commit/64c3859472ac716760d1c8354738796db9d95121))
+
 ## [1.0.9](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.8...v1.0.9) (2022-07-31)
 
 

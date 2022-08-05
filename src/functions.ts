@@ -215,11 +215,17 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
   if (indent_offset > 0) {
     let indented = ""
     const lines = cleaned.replace(/[\r\n]/gm, "\n").split("\n")
+    const line_nums = lines.length
 
-    for (const [pos, value] of lines.entries()) {
-      if (pos === 0) indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + value + "\n"
-      else if (pos !== lines.length - 1) indented += indent(indent_offset, indent_spaces) + value + "\n"
-      else indented += indent(indent_offset, indent_spaces) + value // So string ends right at '}'
+    if (line_nums === 1) {
+      indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + lines[0]
+    }
+    else {
+      for (const [pos, value] of lines.entries()) {
+        if (pos === 0) indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + value + "\n"
+        else if (pos === line_nums - 1) indented += indent(indent_offset, indent_spaces) + value + "\n"
+        else indented += indent(indent_offset, indent_spaces) + value // So string ends right at '}'
+      }
     }
 
     return indented

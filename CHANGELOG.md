@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.13...v1.0.14) (2022-08-05)
+
+
+### Bug Fixes
+
+* **package:** Added more funcitonality to stringify ([3fcf5c6](https://github.com/Luis-Domenech/lfd-utils/commit/3fcf5c64cb37a3dce26bc7ea6fc1b92f8b70a71f))
+
 ## [1.0.13](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.12...v1.0.13) (2022-08-05)
 
 

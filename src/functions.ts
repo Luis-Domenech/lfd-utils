@@ -187,16 +187,42 @@ export const remove_dir = async (dir_path: string, only_content: boolean) => {
 }
 
 /**
+ * A function that returns a string of indents, where each indent is X whitespace characters, X being equal to indent_spaces.
+ * @param indent_amount Amount of indents to return. Numbers are taken as there absolute counterparts so negative number will be turned positive. If passed a value of 0, the function returns an empty string, which is expected behaviour.
+ * @param indent_spaces Amount of spaces in an indent
+ */
+export const indent = (indents: number, indent_spaces = 2): string => " ".repeat(indent_spaces + (indents - 1) * indent_spaces)
+
+/**
  * A function that does the same as JSON.stringify(), but removes all quotes on all keys in the object and can output the string to one line if so desired
  * @param obj Object to stringify
- * @param indent_spaces How much spaces should indents be. Basically, this would be the third parameter in JSON.stringify() and must be greater than zero since those spaces are needed for the regex to work correctly.
+ * @param indent_spaces How much spaces should indents be. Basically, this would be the third parameter in JSON.stringify() and must be greater than zero since those spaces are needed for the regex to work correctly. Any value less than 2 will be set to two.
+ * @param indent_offset If to_one_line is false, then string returned will be formatted exactly as if running JSON.parse(obj, null, indent_spaces). However, if you need all lines after the initial '{' to be spaced x spaces from start of line, then this setting does that. Do note that, for example, if indent_spaces is 2 and indent_offset is 3, then the space offset added to every line will be 2 * 3 = 6 spaces from start of line.
  * @param to_one_line If true, string return will be a one liner
  * @returns Return a a stringified version of an object with quptes removed on fields only
  */
-export const stringify = (obj: any, indent_spaces = 2, to_one_line = false): string => {
+export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one_line = false): string => {
   if (!obj || typeof obj !== "object") return ""
-  let cleaned = JSON.stringify(obj, null, indent_spaces)
+  let cleaned = JSON.stringify(obj, null, indent_spaces < 2 ? 2 : indent_offset)
   cleaned = cleaned.replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function (match) { return match.replace(/"/g, "") })
-  if (to_one_line) cleaned = cleaned.replace(/[\r\n]/gm, "")
+
+  if (to_one_line) {
+    const one_lined = cleaned.replace(/[\r\n]/gm, "")
+    return one_lined
+  }
+
+  if (indent_offset > 0) {
+    let indented = ""
+    const lines = cleaned.replace(/[\r\n]/gm, "\n").split("\n")
+
+    for (const [pos, value] of lines.entries()) {
+      if (pos === 0) indented += value + "\n"
+      else if (pos === lines.length - 1) indented += indent(indent_offset, indent_spaces) + value + "\n"
+      else indented += indent(indent_offset, indent_spaces) + value // So string ends right at '}'
+    }
+
+    return indented
+  }
+
   return cleaned
 }

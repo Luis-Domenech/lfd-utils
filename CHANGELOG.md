@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.16...v1.0.17) (2022-08-05)
+
+
+### Bug Fixes
+
+* **stringify:** Fixed edge case for stringify indent_offset logic ([5be25f6](https://github.com/Luis-Domenech/lfd-utils/commit/5be25f688a187d9c7e6bc6d97f16b754f608ea61))
+
 ## [1.0.16](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.15...v1.0.16) (2022-08-05)
 
 

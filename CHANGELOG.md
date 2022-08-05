@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.15...v1.0.16) (2022-08-05)
+
+
+### Bug Fixes
+
+* **stringify:** Fixed typo that broke indent offset feature ([009d4b4](https://github.com/Luis-Domenech/lfd-utils/commit/009d4b41b2134e623241f614997ae99bcba8c17e))
+
 ## [1.0.15](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.14...v1.0.15) (2022-08-05)
 
 

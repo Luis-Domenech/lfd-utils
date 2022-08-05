@@ -204,7 +204,7 @@ export const indent = (indents: number, indent_spaces = 2): string => " ".repeat
  */
 export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one_line = false, offset_first_line = true): string => {
   if (!obj || typeof obj !== "object") return ""
-  let cleaned = JSON.stringify(obj, null, indent_spaces < 2 ? 2 : indent_offset)
+  let cleaned = JSON.stringify(obj, null, indent_spaces < 2 ? 2 : indent_spaces)
   cleaned = cleaned.replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function (match) { return match.replace(/"/g, "") })
 
   if (to_one_line) {

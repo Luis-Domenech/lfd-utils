@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.11...v1.0.12) (2022-08-03)
+
+
+### Bug Fixes
+
+* **match_first:** Added null check to parameter in match_first ([e8173c8](https://github.com/Luis-Domenech/lfd-utils/commit/e8173c822c80f9b5e5ed1bab3e2a3504a4da781e))
+
 ## [1.0.11](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.10...v1.0.11) (2022-08-03)
 
 

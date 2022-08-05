@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.12...v1.0.13) (2022-08-05)
+
+
+### Bug Fixes
+
+* **package:** Added indent function and modified stringify function ([37f2e5b](https://github.com/Luis-Domenech/lfd-utils/commit/37f2e5b517bbcd1091f827f0ebb79687005b41fe))
+
 ## [1.0.12](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.11...v1.0.12) (2022-08-03)
 
 

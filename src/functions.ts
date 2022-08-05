@@ -199,9 +199,10 @@ export const indent = (indents: number, indent_spaces = 2): string => " ".repeat
  * @param indent_spaces How much spaces should indents be. Basically, this would be the third parameter in JSON.stringify() and must be greater than zero since those spaces are needed for the regex to work correctly. Any value less than 2 will be set to two.
  * @param indent_offset If to_one_line is false, then string returned will be formatted exactly as if running JSON.parse(obj, null, indent_spaces). However, if you need all lines after the initial '{' to be spaced x spaces from start of line, then this setting does that. Do note that, for example, if indent_spaces is 2 and indent_offset is 3, then the space offset added to every line will be 2 * 3 = 6 spaces from start of line.
  * @param to_one_line If true, string return will be a one liner
+ * @param offset_first_line If indent_offset is set and to_one_line is false and this is true, then the first line, '{' will be indented too
  * @returns Return a a stringified version of an object with quptes removed on fields only
  */
-export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one_line = false): string => {
+export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one_line = false, offset_first_line = true): string => {
   if (!obj || typeof obj !== "object") return ""
   let cleaned = JSON.stringify(obj, null, indent_spaces < 2 ? 2 : indent_offset)
   cleaned = cleaned.replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function (match) { return match.replace(/"/g, "") })
@@ -216,7 +217,7 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
     const lines = cleaned.replace(/[\r\n]/gm, "\n").split("\n")
 
     for (const [pos, value] of lines.entries()) {
-      if (pos === 0) indented += value + "\n"
+      if (pos === 0) indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + value + "\n"
       else if (pos === lines.length - 1) indented += indent(indent_offset, indent_spaces) + value + "\n"
       else indented += indent(indent_offset, indent_spaces) + value // So string ends right at '}'
     }

@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.17...v1.0.18) (2022-08-05)
+
+
+### Bug Fixes
+
+* **stringify:** Refixed previously fixed typo ([35f83cb](https://github.com/Luis-Domenech/lfd-utils/commit/35f83cb8ad03445d8ed0a0614015a4b6349bd978))
+
 ## [1.0.17](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.16...v1.0.17) (2022-08-05)
 
 

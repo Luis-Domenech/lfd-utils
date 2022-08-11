@@ -1,5 +1,6 @@
 import path from "node:path"
 import { promises as fs } from "node:fs"
+import { IndentOverload } from "./types.js"
 
 /**
  * A function that takes words in snace case and returns them in camel case.
@@ -187,11 +188,32 @@ export const remove_dir = async (dir_path: string, only_content: boolean) => {
 }
 
 /**
- * A function that returns a string of indents, where each indent is X whitespace characters, X being equal to indent_spaces.
- * @param indent_amount Amount of indents to return. Numbers are taken as there absolute counterparts so negative number will be turned positive. If passed a value of 0, the function returns an empty string, which is expected behaviour.
- * @param indent_spaces Amount of spaces in an indent
+ * A function that returns a to_indent prefixed by a string of indents, where each indent is X whitespace characters, X being equal to indent_spaces. This function can be called with string, to_indent, as first or last parameter. Do note that all parameters are optional, regardless of order, and in case that no paramters are passed, function will just execute with default values.
+ * @param to_indent String to indent
+ * @param indent_amount Amount of indents to return. Numbers are taken as there absolute counterparts so negative number will be turned positive. If passed a value of 0, the function returns an empty string, which is expected behaviour. Default value is `1`.
+ * @param indent_spaces Amount of spaces in an indent. Default value is `2`.
+ * @returns A string prefixed with a number of indents equal to indents. Default value is `""`
  */
-export const indent = (indents: number, indent_spaces = 2): string => " ".repeat(indent_spaces + (indents - 1) * indent_spaces)
+export const indent: IndentOverload = (a?: string | number, b?: number, c?: string | number): string => {
+  let to_indent = ""
+  let indent_amount = 1
+  let indent_spaces = 2
+
+  // These checks are to determine order of provided parameters
+  if (typeof a === "string") {
+    if (a) to_indent = a
+    if (b && typeof b === "number") indent_amount = b
+    if (c && typeof c === "number") indent_spaces = c
+  }
+  else if (typeof a === "number") {
+    if (a) indent_amount = a
+    if (b && typeof b === "number") indent_spaces = b
+    if (c && typeof c === "string") to_indent = c
+  }
+  
+  const indent_prefix = " ".repeat(indent_spaces + (indent_amount - 1) * indent_spaces)
+  return `${indent_prefix}${to_indent}`
+}
 
 /**
  * A function that does the same as JSON.stringify(), but removes all quotes on all keys in the object and can output the string to one line if so desired
@@ -218,13 +240,13 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
     const line_nums = lines.length
 
     if (line_nums === 1) {
-      indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + lines[0]
+      indented += (offset_first_line ? indent(lines[0], indent_offset, indent_spaces) : "")
     }
     else {
       for (const [pos, value] of lines.entries()) {
-        if (pos === 0) indented += (offset_first_line ? indent(indent_offset, indent_spaces) : "") + value + "\n"
-        else if (pos !== line_nums - 1) indented += indent(indent_offset, indent_spaces) + value + "\n"
-        else indented += indent(indent_offset, indent_spaces) + value // So string ends right at '}'
+        if (pos === 0) indented += (offset_first_line ? indent(value + "\n", indent_offset, indent_spaces) : "")
+        else if (pos !== line_nums - 1) indented += indent(value + "\n", indent_offset, indent_spaces)
+        else indented += indent(value, indent_offset, indent_spaces) // So string ends right at '}'
       }
     }
 

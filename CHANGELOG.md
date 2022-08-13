@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.18...v1.0.19) (2022-08-11)
+
+
+### Bug Fixes
+
+* **indent:** Improved indent function ([762c59f](https://github.com/Luis-Domenech/lfd-utils/commit/762c59f646e40e160df6eaa337d310f4f7c38364))
+
 ## [1.0.18](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.17...v1.0.18) (2022-08-05)
 
 

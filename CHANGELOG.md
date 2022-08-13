@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.21...v1.0.22) (2022-08-13)
+
+
+### Bug Fixes
+
+* **stringofy:** One line string is now seperatated by equal whitespace numbers in stringify ([4f8bac3](https://github.com/Luis-Domenech/lfd-utils/commit/4f8bac3e3440cce679b16181db3df13e47e58339))
+
 ## [1.0.21](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.20...v1.0.21) (2022-08-13)
 
 

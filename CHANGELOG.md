@@ -1,3 +1,10 @@
+## [1.0.21](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.20...v1.0.21) (2022-08-13)
+
+
+### Bug Fixes
+
+* **stringify:** Fixed another edge case ([bd1344b](https://github.com/Luis-Domenech/lfd-utils/commit/bd1344b936f292ad0b5c74a4e2e0120241870c5c))
+
 ## [1.0.20](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.19...v1.0.20) (2022-08-13)
 
 

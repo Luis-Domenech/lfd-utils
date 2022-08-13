@@ -245,7 +245,7 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
     }
     else {
       for (const [pos, value] of lines.entries()) {
-        if (pos === 0) indented += (offset_first_line ? indent(value + "\n", indent_offset, indent_spaces) : "")
+        if (pos === 0) indented += (offset_first_line ? indent(value + "\n", indent_offset, indent_spaces) : value + "\n")
         else if (pos !== line_nums - 1) indented += indent(value + "\n", indent_offset, indent_spaces)
         else indented += indent(value, indent_offset, indent_spaces) // So string ends right at '}'
       }

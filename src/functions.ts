@@ -230,7 +230,8 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
   cleaned = cleaned.replace(/^[\t ]*"[^:\n\r]+(?<!\\)":/gm, function (match) { return match.replace(/"/g, "") })
 
   if (to_one_line) {
-    const one_lined = cleaned.replace(/[\r\n]/gm, "")
+    let one_lined = cleaned.replace(/[\r\n]/gm, "")
+    one_lined = cleaned.replace(/[\s]+/gm, " ".repeat(indent_spaces < 2 ? 2 : indent_spaces))
     return one_lined
   }
 

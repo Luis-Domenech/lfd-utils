@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.19...v1.0.20) (2022-08-13)
+
+
+### Bug Fixes
+
+* **stringify:** Fixed edge case not handled of {} turned to emtpy string if given indent_offset ([f40f027](https://github.com/Luis-Domenech/lfd-utils/commit/f40f02787977d5e86124266323ff503f5a2b2d08))
+
 ## [1.0.19](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.18...v1.0.19) (2022-08-11)
 
 

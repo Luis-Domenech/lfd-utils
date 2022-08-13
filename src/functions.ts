@@ -235,6 +235,7 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
   }
 
   if (indent_offset > 0) {
+    if (cleaned === "{}") return cleaned
     let indented = ""
     const lines = cleaned.replace(/[\r\n]/gm, "\n").split("\n")
     const line_nums = lines.length

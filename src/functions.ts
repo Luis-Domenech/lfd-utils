@@ -257,3 +257,10 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
 
   return cleaned
 }
+
+/**
+ * A simple function that sort of operates like time.sleep() in python. Can be used in async function to wait X number of milliseconds before continuing execution.
+ * @param d Time to delay by (in milliseconds)
+ * @returns A promise of when delay is finished
+ */
+export const delay = (d: number) => new Promise(resolve => setTimeout(resolve, d))

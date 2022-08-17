@@ -1,3 +1,10 @@
+## [1.0.23](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.22...v1.0.23) (2022-08-17)
+
+
+### Bug Fixes
+
+* **delay:** Added delay function ([d150838](https://github.com/Luis-Domenech/lfd-utils/commit/d150838b9bcc07b2f918ac213447e8740ad06a36))
+
 ## [1.0.22](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.21...v1.0.22) (2022-08-13)
 
 

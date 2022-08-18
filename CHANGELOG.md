@@ -1,3 +1,10 @@
+## [1.0.24](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.23...v1.0.24) (2022-08-18)
+
+
+### Bug Fixes
+
+* **pacakge:** Removed node 16 url imports for now ([a2d1d72](https://github.com/Luis-Domenech/lfd-utils/commit/a2d1d72e1ca64ba31a6a89d5254a1221e0a88eb2))
+
 ## [1.0.23](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.22...v1.0.23) (2022-08-17)
 
 

@@ -13,9 +13,30 @@ export const camel_case_to_snake_case = (snake_case: string) => {
   for (const word of snake_case.replace(/[\r\n]/gm, "\n").replace(/[\n]/gm, " ").split(" ")) {
     str += str ? " " : "" // Add space for enxt word
     let w = ""
+    let in_word = false
+    let prev = ""
     for (const c of word) {
-      w += c.toLowerCase() === c ? c : `_${c.toLowerCase()}` 
+      if (c.toLowerCase() === c) {
+        // Here we are at a lower case word
+        w += c
+        prev = c
+        if (in_word) in_word = false
+      }
+      else {
+        // Here means we have a capital letter
+        // We check if in_word is true, cause if it is, then
+        // current capital letter will not be part of a new _word 
+        if (in_word) {
+          w += c.toLowerCase()
+          prev = c.toLowerCase()
+        }
+        else {
+          w += prev === '_' ? c.toLowerCase() : `_${c.toLowerCase()}` 
+          in_word = true
+        }
+      }
     }
+
     str += w.charAt(0) === "_" ? w.slice(1) : w
   }
   return str

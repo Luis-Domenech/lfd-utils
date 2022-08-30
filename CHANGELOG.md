@@ -1,3 +1,10 @@
+## [1.0.25](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.24...v1.0.25) (2022-08-29)
+
+
+### Bug Fixes
+
+* **camel_case_to_snake_case:** Upgraded functionality for camel_case_to_snake_case ([8fb10ca](https://github.com/Luis-Domenech/lfd-utils/commit/8fb10cac756f3f4ef3eb532b51f7d3c2a81044f7))
+
 ## [1.0.24](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.23...v1.0.24) (2022-08-18)
 
 

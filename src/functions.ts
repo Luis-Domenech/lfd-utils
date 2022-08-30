@@ -1,5 +1,5 @@
 import path from "path"
-import { promises as fs } from "fs"
+import fs from "fs"
 import { IndentOverload } from "./types.js"
 
 /**
@@ -189,22 +189,30 @@ export const match_first = (target: string, match: RegExp): string => {
  * @param only_content Determine if to remove only the files within directory only
  */
 export const remove_dir = async (dir_path: string, only_content: boolean) => {
-  const exists = await fs.stat(dir_path).catch(e => false)
+  try {
+    const exists = fs.statSync(dir_path)
 
-  if (exists) {
-    const dir_entries = await fs.readdir(dir_path, { withFileTypes: true })
- 
-    await Promise.all(
-      dir_entries.map(async dir_entry => {
-        const full_path = path.join(dir_path, dir_entry.name)
+    if (exists) {
+      const dir_entries = fs.readdirSync(dir_path, { withFileTypes: true })
+
+      if (dir_entries) {
+        await Promise.all(
+          dir_entries.map(async dir_entry => {
+            const full_path = path.join(dir_path, dir_entry.name)
+            
+            return dir_entry.isDirectory()
+              ? await remove_dir(full_path, false)
+              : fs.unlinkSync(full_path)
+          }),
+        )
         
-        return dir_entry.isDirectory()
-          ? await remove_dir(full_path, false)
-          : await fs.unlink(full_path)
-      }),
-    )
-    
-    if (!only_content) await fs.rmdir(dir_path)
+      }
+
+      if (!only_content) fs.rmdirSync(dir_path)
+    } 
+  }
+  catch (e) {
+    // Do nothing
   }
 }
 

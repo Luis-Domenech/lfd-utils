@@ -1,3 +1,10 @@
+## [1.0.26](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.25...v1.0.26) (2022-08-30)
+
+
+### Bug Fixes
+
+* **remove_dir:** remove_dir now works correctly ([1e35c80](https://github.com/Luis-Domenech/lfd-utils/commit/1e35c8037da04e74bad2ad935ea2a060ca0ba9a3))
+
 ## [1.0.25](https://github.com/Luis-Domenech/lfd-utils/compare/v1.0.24...v1.0.25) (2022-08-29)
 
 

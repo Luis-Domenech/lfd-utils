@@ -293,3 +293,119 @@ export const stringify = (obj: any, indent_spaces = 2, indent_offset = 0, to_one
  * @returns A promise of when delay is finished
  */
 export const delay = (d: number) => new Promise(resolve => setTimeout(resolve, d))
+
+
+/**
+ * A function to construct a date at the current time and add or subtract time absed on params passed.
+ * @param days Amount of days to add or subtract from current date.
+ * @param months Amount of months to add or subtract from current date.
+ * @param years Amount of years to add or subtract from current date.
+ * @param hours Amount of hours to add or subtract from current date.
+ * @param minutes Amount of minutes to add or subtract from current date.
+ * @param seconds Amount of seconds to add or subtract from current date.
+ * @returns A date set X time from now dependent on parameters passed.
+ */
+export const create_date = (days = 0, months = 0, years = 0, hours = 0, minutes = 0, seconds = 0): Date => {
+  const date = new Date()
+  date.setDate(date.getDate() + days)
+  date.setMonth(date.getMonth() + months)
+  date.setFullYear(date.getFullYear() + years)
+
+  const h = hours * 60 * 60 * 1000
+  const m = minutes * 60 * 1000
+  const s = seconds * 1000
+  const ms = h + m + s
+
+  date.setTime(date.getTime() + ms)
+
+  return date
+}
+
+/**
+ * A function to add or subtract time to a given date based on params passed.
+ * @param date Date to add or subtract time to.
+ * @param days Amount of days to add or subtract to given date.
+ * @param months Amount of months to add or subtract to given date.
+ * @param years Amount of years to add or subtract to given date.
+ * @param hours Amount of hours to add or subtract to given date.
+ * @param minutes Amount of minutes to add or subtract to given date.
+ * @param seconds Amount of seconds to add or subtract to given date.
+ * @returns A date set X time from the date given dependent on parameters passed.
+ */
+export const add_to_date = (date: Date, days: number, months: number, years: number, hours = 0, minutes = 0, seconds = 0): Date => {
+  date.setDate(date.getDate() + days)
+  date.setMonth(date.getMonth() + months)
+  date.setFullYear(date.getFullYear() + years)
+
+  const h = hours * 60 * 60 * 1000
+  const m = minutes * 60 * 1000
+  const s = seconds * 1000
+  const ms = h + m + s
+
+  date.setTime(date.getTime() + ms)
+
+  return date
+}
+
+/**
+ * Simple function to take a Date or use the current Date and covnert that date into a sepcified string format.
+ * @param date Date to format.
+ * @param format How to format the date.
+ * @returns A formatted string of the given date
+ */
+export const formatted_date = (date: Date = new Date(), format: 'mm-dd-yyyy' | 'yyyy-mm-dd' = 'yyyy-mm-dd'): string => {
+  let d = date
+  if (typeof date === 'string') {
+    d = new Date(date)
+  }
+
+  const padTo2Digits = (num: number)  => {
+    return num.toString().padStart(2, '0')
+  }
+  
+  const ret = format === 'yyyy-mm-dd' ? [
+    d.getFullYear(),
+    padTo2Digits(d.getMonth() + 1),
+    padTo2Digits(d.getDate()),
+  ].join('-') :
+    format === 'mm-dd-yyyy' ? [
+      padTo2Digits(d.getMonth() + 1),
+      padTo2Digits(d.getDate()),
+      d.getFullYear(),
+    ].join('-') : [
+      d.getFullYear(),
+      padTo2Digits(d.getMonth() + 1),
+      padTo2Digits(d.getDate()),
+    ].join('-')
+
+  return ret
+}
+
+/**
+ * Simple function to convert an ICS date like `20210922T164500Z` to a Date.
+ * Prisma's DateTime primitive type stores timestamps in DB in ICS format, so this funciton helps convert ICS timestamps to Date. 
+ * @param ics_date ICS formatted date to parse.
+ * @returns A Date object contructed fromt the given ICS string.
+ */
+export const parse_ics_date = (ics_date: string): Date | string => {
+  if (!/^[0-9]{8}T[0-9]{6}Z$/.test(ics_date))
+    return 'ICS Date is wrongly formatted: ' + ics_date
+  
+  try {
+    const year = parseInt(ics_date.substring(0, 4))
+    const month = parseInt(ics_date.substring(4, 6))
+    const day = parseInt(ics_date.substring(6, 8))
+    
+    const hour   = parseInt(ics_date.substring(9, 11))
+    const minute = parseInt(ics_date.substring(11, 3))
+    const second = parseInt(ics_date.substring(13, 15))  
+ 
+    return new Date(Date.UTC(year, month - 1, day, hour, minute, second))
+  }
+  catch(e) {
+    return 'ICS Date is wrongly formatted: ' + ics_date
+  }
+}
+
+
+

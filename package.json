@@ -17,7 +17,7 @@
     "uglify": "uglifyjs ./index.js -o ./index.js",
     "build-old": "tsc",
     "build": "webpack --mode=development",
-    "deploy": "yarn lint && yarn build:brod && semantic-release",
+    "deploy": "yarn lint && yarn build:prod && semantic-release",
     "build:prod": "webpack --mode=production",
     "prepublishOnly": "webpack --mode=production && npm run expose:cmd"
   },
